@@ -111,15 +111,15 @@ const PortfolioForm: React.FC<PortfolioFormProps> = ({ portfolioData, setPortfol
 
           {/* Progress indicator */}
           <div className="mb-8">
-            <div className="flex justify-between">
+            <div className="flex justify-between flex-wrap sm:flex-nowrap overflow-x-auto sm:overflow-x-visible">
               {steps.map((step, index) => (
                 <button
                   key={step}
                   onClick={() => setCurrentStep(step)}
-                  className={`flex-1 text-xs uppercase font-medium ${steps.indexOf(currentStep) >= index
-                      ? 'text-indigo-600 dark:text-indigo-400'
-                      : 'text-gray-400'
-                    }`}
+                  className={`flex-shrink-0 sm:flex-1 text-xs uppercase font-medium ${steps.indexOf(currentStep) >= index
+                    ? 'text-indigo-600 dark:text-indigo-400'
+                    : 'text-gray-400'
+                    } sm:text-sm lg:text-base px-2 py-1 sm:px-4 sm:py-2`}
                 >
                   {getStepTitle(step)}
                 </button>
@@ -138,6 +138,8 @@ const PortfolioForm: React.FC<PortfolioFormProps> = ({ portfolioData, setPortfol
             </div>
           </div>
 
+
+
           {/* Form content */}
           <div className="min-h-[400px]">
             {renderStepContent()}
@@ -149,8 +151,8 @@ const PortfolioForm: React.FC<PortfolioFormProps> = ({ portfolioData, setPortfol
               onClick={goToPreviousStep}
               disabled={currentStep === steps[0]}
               className={`flex items-center px-4 py-2 rounded-md ${currentStep === steps[0]
-                  ? 'bg-gray-200 dark:bg-gray-700 cursor-not-allowed'
-                  : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200'
+                ? 'bg-gray-200 dark:bg-gray-700 cursor-not-allowed'
+                : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200'
                 } transition-colors duration-200`}
             >
               <ChevronLeft size={16} className="mr-1" />
@@ -179,8 +181,8 @@ const PortfolioForm: React.FC<PortfolioFormProps> = ({ portfolioData, setPortfol
 
       {showAlert && (
         <CenteredAlert
-        message="🎉 Great job! Your portfolio is ready. You can now preview or download it as a PDF."
-        onClose={() => setShowAlert(false)}
+          message="🎉 Great job! Your portfolio is ready. You can now preview or download it as a PDF."
+          onClose={() => setShowAlert(false)}
         />
       )}
     </>
