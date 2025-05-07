@@ -69,22 +69,28 @@ const Header: React.FC<HeaderProps> = ({ onDownload, onDownloadHTML }) => {
               </button>
 
               {showSteps && (
-                <div className="absolute right-0 mt-2 w-96 bg-white dark:bg-gray-900 text-sm text-gray-800 dark:text-gray-100 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-4 z-50">
-                  <h3 className="font-semibold mb-2">Steps to Host on GitHub:</h3>
-                  <ol className="list-decimal list-inside space-y-1">
-                    <li>Create a GitHub repo (public).</li>
-                    <li>Upload <code>portfolio.html</code>.</li>
-                    <li>Rename it to <code>index.html</code>.</li>
-                    <li>Go to Settings → Pages → Select "Deploy from branch".</li>
-                    <li>Use the link to access your hosted page.</li>
-                  </ol>
-                  <button
-                    onClick={toggleSteps}
-                    className="mt-3 text-xs text-indigo-500 hover:underline"
-                  >
-                    Close
-                  </button>
-                </div>
+               <div className="fixed inset-0 flex justify-center items-center z-50 bg-opacity-50 bg-gray-800 dark:bg-gray-900">
+               <div className="w-full sm:w-96 bg-white dark:bg-gray-900 text-sm text-gray-800 dark:text-gray-100 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-4 mx-4">
+                 <h3 className="font-semibold mb-2 text-center sm:text-left">Steps to Host on GitHub:</h3>
+                 <ol className="list-decimal list-inside space-y-1">
+                   <li>Create a GitHub repo (public).</li>
+                   <li>Upload <code>portfolio.html</code>.</li>
+                   <li>Rename it to <code>index.html</code>.</li>
+                   <li>Go to Settings → Pages → Select "Deploy from branch".</li>
+                   <li>Use the link to access your hosted page.</li>
+                 </ol>
+                 <button
+                   onClick={toggleSteps}
+                   className="mt-3 text-xs text-indigo-500 hover:underline block mx-auto sm:mx-0"
+                 >
+                   Close
+                 </button>
+               </div>
+             </div>
+             
+              
+
+
               )}
             </div>
           </div>
